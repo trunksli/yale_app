@@ -10,7 +10,14 @@ gem 'bcrypt-ruby', '3.0.1'
 group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
+	gem 'guard-rspec'
+	gem 'guard-spork'
+	gem 'childprocess'
+	gem 'spork'
 end
+
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 
 group :development do
 	gem 'annotate'	
@@ -29,10 +36,14 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rvm' #eliminates need for bundle exec
 
 group :test do
-	gem 'capybara'
+	gem 'capybara', '1.1.2'
 	gem 'factory_girl_rails'
+	gem 'rb-fchange'
+	gem 'rb-notifu'
+	gem 'win32console'
 end
 
 group :production do
