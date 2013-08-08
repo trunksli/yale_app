@@ -1,57 +1,42 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+  subject { page }
 
-  describe "Home page" do
-    it "should have the h1 'Yale1on1'" do
-      visit '/static_pages/home'
-      page.should have_selector('h1', text:'Yale1on1')
-    end
-
-    it "should have the basetitle" do
-      visit '/static_pages/home'
-      expect(page).to have_title("Yale1on1")      
-	  end
+  shared_examples_for "all static pages" do
+    it{ should have_selector('h1', text:heading) }
+    it{ expect(page).to have_title(page_title)   }
+  end
   
-    it "should not have a custom page title" do 
-      visit '/static_pages/home'
-      expect(page).not_to have_title("| Home")     
-    end
+  describe "Home page" do
+    before {visit root_path}
+    let(:heading) {'Yale1on1'}
+    let(:page_title) {''}
+    it_should_behave_like "all static pages"
+    
+    it{expect(page).not_to have_title("| Home")     }
   end # home page
 
   describe "Help page" do
-    it "should have the h1 'Help'" do
-      visit '/static_pages/help'
-      page.should have_selector('h1', text:'Help')
-    end
-    it "should have the title 'Help'" do
-      visit '/static_pages/help'
-      expect(page).to have_title ("Help")
-	  end
+    before {visit help_path}
+    let(:heading){'Help'}
+    let(:page_title){'Help'}
+    it_should_behave_like "all static pages"
   end #help page
 
   describe "About page" do
-    it "should have the h1 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_selector('h1', text:'About Us')
-    end
-	  it "should have the title 'Yale1on1'" do
-      visit '/static_pages/about'
-      expect(page).to have_title ("About Us")
-	  end
-  end
+    before {visit about_path}
+    it {should have_selector('h1', text:'About Us')}
+    it{expect(page).to have_title ("About Us")}
+	end
 
   describe "Contact" do
-    it "should have the h1 'Contact Us'" do
-      visit '/static_pages/contact'
-      page.should have_selector('h1', text:'Contact Us')
-    end
-	   it "should have the title 'Yale1on1'" do
-      visit '/static_pages/contact'
-      expect(page).to have_title ("Contact")
-	  end
+    before {visit contact_path}
+    it{should have_selector('h1', text:'Contact Us')}
+    it{expect(page).to have_title ("Contact")}
   end #contact
 
+end #end main describe
 =begin  
   subject { page }
 
@@ -73,4 +58,4 @@ describe "StaticPages" do
     it {should have_selector('p', text: 'Frustrated')}
   end
 =end
-end #end main desribe
+
