@@ -8,10 +8,14 @@ $grayMediumLight: #eaeaea;
 
 html {
 	overflow-y: scroll;
+	height: 100%;
+	background: url('bg.jpg') no-repeat center center;
 }
+
 
 body {
 	padding-top: 60px;
+	background-color: transparent;
 }
 
 section{
@@ -57,20 +61,26 @@ p{
 }
 
 /*header*/
+
+#header {
+	background: $white;
+	/*background: url('slide.png') no-repeat center;*/
+}
+
+.navbar-inner {
+}
+
+.navbar-inner .container{
+	background: url('slide.png') no-repeat center;
+	width: 600px;
+	height: 175px;
+}
+
+.navbar .navbar-fixed-top .navbar-inverse{
+}
+
 #logo {
-	float:left;
-	margin-right: 10px;
-	font-size: 1.7em;
-	color: #fff;
-	text-transform: uppercase;
-	letter-spacing: -1px;
-	padding-top: 9px;
-	font-weight: bold;
-	line-height: 1;
-	&:hover {
-		color: $blue;
-		text-decoration: none;
-	}
+	float: middle;	
 }
 
 
