@@ -26,12 +26,6 @@ textarea {
 	resize: vertical;
 }
 
-.center {
-	text-align: center;
-	h1 {
-		margin-bottom: 10px;
-	}
-}
 
 /*typography*/
 
@@ -68,19 +62,35 @@ p{
 }
 
 .navbar-inner {
+	background-color: transparent;
 }
 
 .navbar-inner .container{
 	background: url('slide.png') no-repeat center;
 	width: 600px;
 	height: 175px;
+	background-color: transparent;
 }
 
 .navbar .navbar-fixed-top .navbar-inverse{
+	background-color: $red;
 }
 
 #logo {
 	float: middle;	
+}
+
+/*body*/
+.center {
+	text-align: center;
+	h1 {
+		margin-bottom: 10px;
+	}
+	float: left;
+}
+
+.center .hero-unit {
+	float: left;
 }
 
 
